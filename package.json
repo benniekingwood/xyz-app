@@ -2,7 +2,7 @@
   "name": "xyz-app",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for xyz-app goes here",
+  "description": "xyz-app that shows how to use the table component.",
   "repository": "",
   "license": "MIT",
   "author": "",

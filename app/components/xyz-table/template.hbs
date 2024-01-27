@@ -1,0 +1,21 @@
+{{! Main Header select all checkbox, download selected button }}
+<div class="xyz-table">
+  <div>Selected Checkbox</div>
+  <div {{on "click" this.onDownload}}>Download Selected</div>
+  <table>
+    <thead>
+      {{#each @columns as |column|}}
+        <th class="__header">{{column.name}}</th>
+      {{/each}}
+    </thead>
+    {{#each @rows as |row|}}
+      <tr>
+        {{#each @columns as |column|}}
+          <td>{{get row (concat column.valuePath)}}</td>
+        {{/each}}
+      </tr>
+    {{/each}}
+  </table>
+
+  {{! Have selection be a hashmap and each row is the key then }}
+</div>
