@@ -1,4 +1,5 @@
 {{#if this.isAvailable}}
-  <span class="circle"></span>
+  <span class="__badge">green circle here</span>
 {{/if}}
-<div>{{@value}}</div>
+<div class="__status">{{@model.status}}</div>
+{{!-- @todo capitalize --}}

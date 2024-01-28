@@ -18,6 +18,7 @@ export default class IndexController extends Controller {
     {
       name: `Status`,
       valuePath: `status`,
+      cellType: 'xyz-table/cells/status-cell',
     },
   ];
 

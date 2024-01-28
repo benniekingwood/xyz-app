@@ -28,7 +28,13 @@
           />
         </td>
         {{#each @columns as |column|}}
-          <td>{{get row (concat column.valuePath)}}</td>
+          <td>
+            {{#if column.cellType}}
+              {{component column.cellType model=row}}
+            {{else}}
+              {{get row (concat column.valuePath)}}
+            {{/if}}
+          </td>
         {{/each}}
       </tr>
     {{/each}}
