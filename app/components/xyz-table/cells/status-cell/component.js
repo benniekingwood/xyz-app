@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 
-export default class StatusCellComponent extends Component {
+export default class StatusCell extends Component {
   get isAvailable() {
-    return this.args.status === 'available';
+    return this.args.model?.status === 'available';
   }
 }
