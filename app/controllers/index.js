@@ -22,7 +22,18 @@ export default class IndexController extends Controller {
   ];
 
   @action
-  download() {
-    alert('download clicked!');
+  download(data = []) {
+    // only show device and path data for items that are "available";
+    const downloadables = data.reduce((list, item) => {
+      if (item.status === 'available') {
+        const { device, path } = item;
+
+        list.push({ device, path });
+      }
+
+      return list;
+    }, []);
+
+    alert(JSON.stringify(downloadables));
   }
 }
