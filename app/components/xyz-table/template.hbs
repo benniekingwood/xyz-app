@@ -1,21 +1,36 @@
-{{! Main Header select all checkbox, download selected button }}
 <div class="xyz-table">
-  <div>Selected Checkbox</div>
-  <div {{on "click" this.onDownload}}>Download Selected</div>
+  <ul class="__main-header">
+    <li>
+      <Input
+        indeterminate={{this.isIndeterminate}}
+        @type="checkbox"
+        @checked={{this.isAllSelected}}
+        {{on "input" this.onSelectAllClick}}
+      />
+    </li>
+    <li>{{this.selectedTitle}}</li>
+    <li class="__download-button" {{on "click" this.onDownloadClick}}>Download Selected</li>
+  </ul>
   <table>
     <thead>
+      <td />
       {{#each @columns as |column|}}
-        <th class="__header">{{column.name}}</th>
+        <th class="__table-header">{{column.name}}</th>
       {{/each}}
     </thead>
-    {{#each @rows as |row|}}
-      <tr>
+    {{#each @rows as |row index|}}
+      <tr class="__table-row{{if (includes index this.selectedItems) '--active'}}">
+        <td>
+          <Input
+            @type="checkbox"
+            @checked={{includes index this.selectedItems}}
+            {{on "input" (fn this.onRowCheckboxClick index)}}
+          />
+        </td>
         {{#each @columns as |column|}}
           <td>{{get row (concat column.valuePath)}}</td>
         {{/each}}
       </tr>
     {{/each}}
   </table>
-
-  {{! Have selection be a hashmap and each row is the key then }}
 </div>
