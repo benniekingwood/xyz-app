@@ -2,6 +2,7 @@
   <ul class="xyz-table__main-header">
     <li>
       <Input
+        id="selectAllCheckbox"
         indeterminate={{this.isIndeterminate}}
         @type="checkbox"
         @checked={{this.isAllSelected}}
@@ -9,7 +10,11 @@
       />
     </li>
     <li>{{this.selectedTitle}}</li>
-    <li class="xyz-table__download-button" {{on "click" this.onDownloadClick}}>Download Selected</li>
+    <li
+      role="button"
+      class="xyz-table__download-button"
+      {{on "click" this.onDownloadClick}}
+    >Download Selected</li>
   </ul>
   <table class="xyz-table__table">
     <thead>
@@ -18,25 +23,33 @@
         <th class="xyz-table__table-header">{{column.name}}</th>
       {{/each}}
     </thead>
-    {{#each @rows as |row index|}}
-      <tr class="xyz-table__table-row{{if (includes index this.selectedItems) '--active'}}">
-        <td class="xyz-table__table-data">
-          <Input
-            @type="checkbox"
-            @checked={{includes index this.selectedItems}}
-            {{on "input" (fn this.onRowCheckboxClick index)}}
-          />
-        </td>
-        {{#each @columns as |column|}}
+    <tbody>
+      {{#each @rows as |row index|}}
+        <tr
+          class="xyz-table__table-row{{if
+              (includes index this.selectedItems)
+              '--active'
+            }}"
+        >
           <td class="xyz-table__table-data">
-            {{#if column.cellType}}
-              {{component column.cellType model=row}}
-            {{else}}
-              {{get row (concat column.valuePath)}}
-            {{/if}}
+            <Input
+              id={{index}}
+              @type="checkbox"
+              @checked={{includes index this.selectedItems}}
+              {{on "input" (fn this.onRowCheckboxClick index)}}
+            />
           </td>
-        {{/each}}
-      </tr>
-    {{/each}}
+          {{#each @columns as |column|}}
+            <td class="xyz-table__table-data">
+              {{#if column.cellType}}
+                {{component column.cellType model=row}}
+              {{else}}
+                {{get row (concat column.valuePath)}}
+              {{/if}}
+            </td>
+          {{/each}}
+        </tr>
+      {{/each}}
+    </tbody>
   </table>
 </div>

@@ -3,11 +3,12 @@ body {
   font-family: "Lucida Console", Courier, monospace;
 }
 
-/**** Components Section *****/ 
+/**** Components Section *****/
+
 /* Note: I would rather have these in separate modularized styles file to be compiled,
  * for the sake of time keep them here */
 
- /* XYZ Table Component */
+/* XYZ Table Component */
 .xyz-table {
   margin-left: auto;
   margin-right: auto;
@@ -29,12 +30,14 @@ body {
     padding-left: 40px;
   }
 
-  .xyz-table__table-row, .xyz-table__table-row--active {
+  .xyz-table__table-row,
+  .xyz-table__table-row--active {
     text-align: left;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #000;
   }
 
-  .xyz-table__table-row--active, .xyz-table__table-row:hover {
+  .xyz-table__table-row--active,
+  .xyz-table__table-row:hover {
     background-color: #b5b8ec;
   }
 

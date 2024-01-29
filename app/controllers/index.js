@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { A } from '@ember/array';
+import config from '../config/environment';
 
 export default class IndexController extends Controller {
   columns = [
@@ -38,6 +39,8 @@ export default class IndexController extends Controller {
       return list;
     }, []);
 
-    alert(JSON.stringify(this.downloadables));
+    if (config.environment !== 'test') {
+      alert(JSON.stringify(this.downloadables));
+    }
   }
 }

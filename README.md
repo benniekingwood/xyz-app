@@ -3,7 +3,7 @@
 This application showcases a versatile table component.
 
 ## Features ✨
-- 
+- Select and Download your device list
 
 ## Prerequisites ⚠️
 You will need the following things properly installed on your computer.
@@ -13,7 +13,7 @@ You will need the following things properly installed on your computer.
 * [Ember CLI](https://cli.emberjs.com/release/) ```npm install -g ember-cli```
 
 ## Installation ⚙️
-* `git clone <repository-url>` this repository
+* `git clone https://github.com/benniekingwood/xyz-app.git` this repository
 * `cd xyz-app`
 * `npm install`
 
@@ -23,15 +23,11 @@ You will need the following things properly installed on your computer.
 
 
 ## Testing 🔎
+* You can run the entire test suite in the command line with the following: `npm run test`
 
-* You can run the entire test suite with the following command: ``
+* Run only Unit Tests: `npm run test:unit`
+* Run only Integration Tests: `npm run test:integration`
 
-* Unit Tests
-
-
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
-
-* `npm run test`
-* `npm run test:ember -- --server`
-
-* Ingeration Tests
+* If you would like to see the tests in the browser, do the following:
+    1. Follow steps in the Installation and "Running the Application" sections to build and run the app
+    2.  Visit at [http://localhost:4200/tests](http://localhost:4200/tests).
