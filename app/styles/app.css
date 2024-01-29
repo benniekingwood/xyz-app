@@ -1,12 +1,77 @@
-@import "../components/xyz-table/styles.css";
-
+/**** Globals Section *****/
 body {
   font-family: "Lucida Console", Courier, monospace;
 }
 
+/**** Components Section *****/ 
+/* Note: I would rather have these in separate modularized styles file to be compiled,
+ * for the sake of time keep them here */
+
+ /* XYZ Table Component */
 .xyz-table {
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
-    min-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  min-width: fit-content;
+
+  .xyz-table__table {
+    border-collapse: collapse;
+    border-spacing: 20px 0;
+  }
+
+  .xyz-table__table-header {
+    text-align: left;
+    padding: 10px;
+  }
+
+  .xyz-table__table-header:last-child {
+    width: 100px;
+    padding-left: 40px;
+  }
+
+  .xyz-table__table-row, .xyz-table__table-row--active {
+    text-align: left;
+    border-bottom: 1px solid #000000;
+  }
+
+  .xyz-table__table-row--active, .xyz-table__table-row:hover {
+    background-color: #b5b8ec;
+  }
+
+  .xyz-table__table-data {
+    padding: 10px;
+  }
+
+  .xyz-table__main-header {
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+
+    > li {
+      display: inline;
+      padding: 10px;
+    }
+  }
+
+  .xyz-table__download-button:hover {
+    cursor: pointer;
+    background-color: #b5b8ec;
+  }
+}
+
+/* Status Component */
+.status-cell {
+  .status-cell__status {
+    text-transform: capitalize;
+    padding-left: 30px;
+  }
+
+  .status-cell__badge {
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background-color: #2acb6d;
+    border-radius: 50%;
+    display: inline-block;
+  }
 }

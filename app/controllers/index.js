@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
+import { A } from '@ember/array';
 
 export default class IndexController extends Controller {
   columns = [
@@ -22,10 +23,12 @@ export default class IndexController extends Controller {
     },
   ];
 
+  downloadables = A([]);
+
   @action
   download(data = []) {
     // only show device and path data for items that are "available";
-    const downloadables = data.reduce((list, item) => {
+    this.downloadables = data.reduce((list, item) => {
       if (item.status === 'available') {
         const { device, path } = item;
 
@@ -35,6 +38,6 @@ export default class IndexController extends Controller {
       return list;
     }, []);
 
-    alert(JSON.stringify(downloadables));
+    alert(JSON.stringify(this.downloadables));
   }
 }

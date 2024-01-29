@@ -1,5 +1,6 @@
-{{#if this.isAvailable}}
-  <span class="__badge">green circle here</span>
-{{/if}}
-<div class="__status">{{@model.status}}</div>
-{{!-- @todo capitalize --}}
+<div class="status-cell">
+  {{#if this.isAvailable}}
+    <span class="status-cell__badge"></span>
+  {{/if}}
+  <span class="status-cell__status">{{@model.status}}</span>
+</div>
