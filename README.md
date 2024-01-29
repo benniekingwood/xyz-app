@@ -13,8 +13,7 @@ You will need the following things properly installed on your computer.
 * [Ember CLI](https://cli.emberjs.com/release/) ```npm install -g ember-cli```
 
 ## Installation ⚙️
-* `git clone https://github.com/benniekingwood/xyz-app.git` this repository
-* `cd xyz-app`
+* `cd xyz-app-v1.0.2`
 * `npm install`
 
 ## Running the Application 🟢
