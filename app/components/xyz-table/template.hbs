@@ -1,5 +1,5 @@
 <div class="xyz-table">
-  <ul class="__main-header">
+  <ul class="xyz-table__main-header">
     <li>
       <Input
         indeterminate={{this.isIndeterminate}}
@@ -9,18 +9,18 @@
       />
     </li>
     <li>{{this.selectedTitle}}</li>
-    <li class="__download-button" {{on "click" this.onDownloadClick}}>Download Selected</li>
+    <li class="xyz-table__download-button" {{on "click" this.onDownloadClick}}>Download Selected</li>
   </ul>
-  <table>
+  <table class="xyz-table__table">
     <thead>
-      <td />
+      <th />
       {{#each @columns as |column|}}
-        <th class="__table-header">{{column.name}}</th>
+        <th class="xyz-table__table-header">{{column.name}}</th>
       {{/each}}
     </thead>
     {{#each @rows as |row index|}}
-      <tr class="__table-row{{if (includes index this.selectedItems) '--active'}}">
-        <td>
+      <tr class="xyz-table__table-row{{if (includes index this.selectedItems) '--active'}}">
+        <td class="xyz-table__table-data">
           <Input
             @type="checkbox"
             @checked={{includes index this.selectedItems}}
@@ -28,7 +28,7 @@
           />
         </td>
         {{#each @columns as |column|}}
-          <td>
+          <td class="xyz-table__table-data">
             {{#if column.cellType}}
               {{component column.cellType model=row}}
             {{else}}
